@@ -39,6 +39,8 @@ return [
     |
     */
 
+    'log' => env('APP_LOG', 'errorlog'),
+
     'debug' => (bool) env('APP_DEBUG', false),
 
     /*
