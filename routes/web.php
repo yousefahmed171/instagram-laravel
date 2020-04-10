@@ -21,10 +21,36 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['auth']], function() {
+    //users
     Route::get('user/profile', 'UserController@edit');
     Route::patch('user/profile','UserController@update');
+    Route::get('users', 'UserController@index');
+    Route::get('userinfo/{id}', 'UserController@user_info');
+
+    //search
+    Route::get('search', 'UserController@autocomplete');
+
+    //Post Route
+    Route::resource('post', 'PostController');
+    Route::get('user/posts','PostController@userPosts');
+    Route::get('user/{id}/posts', 'PostController@userFriendPosts');
+
+    //Like Route
+    Route::resource('like', 'LikeController');
+
+    //Comment Route
+    Route::resource('comment', 'CommentController');
+
+    //Follow Route
+    Route::resource('follow', 'FollowController');
+    Route::get('user/followers', 'FollowController@index');
+
+
+
+    Route::get('/home', 'PostController@index')->name('home');
+
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+

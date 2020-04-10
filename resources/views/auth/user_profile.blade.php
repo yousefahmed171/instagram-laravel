@@ -61,7 +61,8 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 mb-6">
-                        <img src="{{asset('images/avatar/'.$user->avatar)}}" style="width: 50%;height:  250px;">
+                        <img  class="img-responsive rounded-circle" src="{{asset('images/avatar/'.$user->avatar)}}"
+                              style="width: 35%;height:200px;">
                     </div>
                     <div class="col-md-6 mb-6">
                         <label for="file_label">الصورة الشخصية</label>
